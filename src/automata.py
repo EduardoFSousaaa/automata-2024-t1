@@ -90,7 +90,7 @@ def load_automata(filename):
     #retprocess = process(automata,words)
     process(automata,words)
     #print(retprocess)
-def process(automata, words):
+def process(automata, word):
     """
     Processa a lista de palavras e retora o resultado.
     
@@ -105,14 +105,14 @@ def process(automata, words):
         #print("\torigem: "+regras[0]+" símbolo: "+regras[1]+" destino: "+regras[2])
     resultado = "OK"
     DictWord={}
-    for word in words:
+    for sWord in word:
         contador = 0;
         palavraAserMontada=""
         # tenta reconhecer `word`
-        retTuple = VerificaPalavra(word,simbolos)
+        retTuple = VerificaPalavra(sWord,simbolos)
         if(retTuple[1]=="VALIDA"):
-            if str(word)!="":
-                for caractere in str(word):
+            if str(sWord)!="":
+                for caractere in str(sWord):
                 #verifica se é posição do estado inicial
                     if contador == 0:
                         for regras in listaRegras:
@@ -146,7 +146,7 @@ def process(automata, words):
                     contador+=1
             #print(palavraAserMontada +" " + str(word))
             #print(palavraAserMontada == str(word))
-            if palavraAserMontada == str(word):
+            if palavraAserMontada == str(sWord):
                 if ProximaOrigem in estadosFinais:
                     resultado = "ACEITA"
                 else:
@@ -157,16 +157,16 @@ def process(automata, words):
             #print("CaminhoAutonomo: " + caminhoDoAutonomo)
             #print(palavraAserMontada)
             #print(resultado)    
-            DictWord[word] = resultado
+            DictWord[sWord] = resultado
         else:
             if(retTuple[1]=="INVALIDA"):
                 if(len(word)>0):
-                    DictWord[word] = "INVALIDA"
+                    DictWord[sWord] = "INVALIDA"
                 else:
                     if(EstadoInicial in estadosFinais):
-                        DictWord[word] = "ACEITA"
+                        DictWord[sWord] = "ACEITA"
             else:
-                DictWord[word] = "REJEITA"
+                DictWord[sWord] = "REJEITA"
         pass
     print("Lista Palavras e resultados")
     for chave, valor in DictWord.items():
@@ -300,7 +300,7 @@ def DescricaoautomataValida(automata):
     else:
         Statusautomata="INVALIDO"
         return Statusautomata
-"""
+#"""
 def main():
     #caminhoPasta = os.getcwd()
     #filename = caminhoPasta + "/Testes/01-simples.txt"
@@ -308,4 +308,4 @@ def main():
     filename = "teste.txt"
     load_automata(filename)
 main()
-"""
+#"""
