@@ -300,7 +300,7 @@ def DescricaoautomataValida(automata):
     else:
         Statusautomata="INVALIDO"
         return Statusautomata
-#"""
+"""
 def main():
     #caminhoPasta = os.getcwd()
     #filename = caminhoPasta + "/Testes/01-simples.txt"
@@ -308,4 +308,4 @@ def main():
     filename = "teste.txt"
     load_automata(filename)
 main()
-#"""
+"""
