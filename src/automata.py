@@ -1,6 +1,6 @@
 """Implementação de autômatos finitos."""
 from collections import namedtuple
-#import os
+import os
 def load_automata(filename):
     #print("load_automata")
     """
@@ -34,7 +34,7 @@ def load_automata(filename):
     Caso o arquivo seja inválido uma exceção Exception é gerada.
     Forca o commit
     """
-    RegrasTransicao = namedtuple("RegrasTransicao",["origem" , "símbolo", "destino"])
+    RegrasTransicao = namedtuple("RegrasTransicao",["origem" , "símbolo", "destino"]) 
     with open(filename, "rt") as arquivo:
         texto = arquivo.readlines()
         contador = 0
@@ -300,7 +300,7 @@ def DescricaoautomataValida(automata):
     else:
         Statusautomata="INVALIDO"
         return Statusautomata
-"""
+""
 def main():
     #caminhoPasta = os.getcwd()
     #filename = caminhoPasta + "/Testes/01-simples.txt"
@@ -308,4 +308,4 @@ def main():
     filename = "teste.txt"
     load_automata(filename)
 main()
-"""
+""
